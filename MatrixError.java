@@ -323,7 +323,7 @@ public class MatrixError{
     	// ADDITION
     	// Add this matrix to matrix B.  This matrix remains unaltered [instance method]
     	public MatrixError plus(MatrixError bmat){
-        	if((this.nrow!=bmat.nrow)||(this.ncol==bmat.ncol)){
+        	if((this.nrow!=bmat.nrow)||(this.ncol!=bmat.ncol)){
             		throw new IllegalArgumentException("Array dimensions do not agree");
         	}
         	int nr=bmat.nrow;
@@ -332,7 +332,7 @@ public class MatrixError{
         	double[][] carray = cmat.getArrayReference();
         	for(int i=0; i<nr; i++){
             		for(int j=0; j<nc; j++){
-                		carray[i][j]=this.matrix[i][i] + bmat.matrix[i][j];
+                		carray[i][j]=this.matrix[i][j] + bmat.matrix[i][j];
             		}
         	}
         	return cmat;
@@ -566,7 +566,7 @@ public class MatrixError{
         	double[][] tarray = tmat.getArrayReference();
         	for(int i=0; i<this.ncol; i++){
             		for(int j=0; j<this.nrow; j++){
-                		tarray[i][j]=this.matrix[i][j];
+                		tarray[i][j]=this.matrix[j][i];
             		}
         	}
         	return tmat;
@@ -590,7 +590,7 @@ public class MatrixError{
         	MatrixError opp = MatrixError.copy(this);
         	for(int i=0; i<this.nrow; i++){
             		for(int j=0; j<this.ncol; j++){
-                		opp.matrix[i][j]=this.matrix[i][j];
+                		opp.matrix[i][j]=-this.matrix[i][j];
             		}
         	}
         	return opp;

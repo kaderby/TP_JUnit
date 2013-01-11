@@ -18,11 +18,12 @@ public class MatrixErrorTest {
 
 	private int rowNb;
 	private int colNb;
-	int init = 0;
+	int init;
 	private double constant;
 	private MatrixError MatrixNull;
 	private MatrixError MatrixConst;
 	private double[][] MatrixA;
+	private double[][] MatrixB;
 	
 	
 	/**
@@ -33,6 +34,7 @@ public class MatrixErrorTest {
 		rowNb = 2;
 		colNb = 3;
 		constant = 1;
+		init = 1;
 		
 		MatrixNull = new MatrixError(rowNb,colNb);
 		MatrixConst = new MatrixError(rowNb,colNb,constant);
@@ -40,9 +42,18 @@ public class MatrixErrorTest {
 		MatrixA = new double[rowNb][colNb];
 		for(int i=0;i<rowNb;i++){
     		for(int j=0;j<colNb;j++){
-    		MatrixA[i][j] = (double) ((i+j)*init + constant) ;	
-    		}   	
+    		MatrixA[i][j] = (double) ((2*i+j)*init + constant) ;	
+    		}
 		}
+    	
+		MatrixB = new double[rowNb][rowNb];
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<rowNb;j++){
+    		MatrixA[i][j] = (double) ((2*i+j)*init + constant) ;	
+    		}
+		}		
+		
+		
 		
 		
 		
@@ -55,9 +66,7 @@ public class MatrixErrorTest {
 	public void tearDown() throws Exception {
 	}
 
-	
-	
-	
+	//MethodTesting
 	
 	/**
 	 * Test method for {@link MatrixError#MatrixError(int, int)}.
@@ -96,7 +105,7 @@ public class MatrixErrorTest {
 		boolean bool = true;
 		for(int i=0;i<rowNb;i++){
     		for(int j=0;j<colNb;j++){
-    		bool = bool & A.getElement(i,j)==((double) ((i+j)*init + constant));	
+    		bool = bool & A.getElement(i,j)==((double) ((2*i+j)*init + constant));	
     		}   	
 		}
 		assertTrue(bool);
@@ -108,219 +117,20 @@ public class MatrixErrorTest {
 	}
 
 	/**
-	 * Test method for {@link MatrixError#MatrixError(MatrixError)}.
-	 */
-	@Test
-	public void testMatrixErrorMatrixError() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#setTwoDarray(double[][])}.
-	 */
-	@Test
-	public void testSetTwoDarray() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#setElement(int, int, double)}.
-	 */
-	@Test
-	public void testSetElement() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#setSubMatrix(int, int, int, int, double[][])}.
-	 */
-	@Test
-	public void testSetSubMatrixIntIntIntIntDoubleArrayArray() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#setSubMatrix(int[], int[], double[][])}.
-	 */
-	@Test
-	public void testSetSubMatrixIntArrayIntArrayDoubleArrayArray() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getMatrixCheck()}.
-	 */
-	@Test
-	public void testGetMatrixCheck() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#identityMatrix(int)}.
-	 */
-	@Test
-	public void testIdentityMatrix() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#scalarMatrix(int, double)}.
-	 */
-	@Test
-	public void testScalarMatrix() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#diagonalMatrix(int, double[])}.
-	 */
-	@Test
-	public void testDiagonalMatrix() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getNrow()}.
-	 */
-	@Test
-	public void testGetNrow() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getNcol()}.
-	 */
-	@Test
-	public void testGetNcol() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getArrayReference()}.
-	 */
-	@Test
-	public void testGetArrayReference() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getArrayPointer()}.
-	 */
-	@Test
-	public void testGetArrayPointer() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getArrayCopy()}.
-	 */
-	@Test
-	public void testGetArrayCopy() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getElement(int, int)}.
-	 */
-	@Test
-	public void testGetElement() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getElementCopy(int, int)}.
-	 */
-	@Test
-	public void testGetElementCopy() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getElementPointer(int, int)}.
-	 */
-	@Test
-	public void testGetElementPointer() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getSubMatrix(int, int, int, int)}.
-	 */
-	@Test
-	public void testGetSubMatrixIntIntIntInt() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getSubMatrix(int[], int[])}.
-	 */
-	@Test
-	public void testGetSubMatrixIntArrayIntArray() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getIndexReference()}.
-	 */
-	@Test
-	public void testGetIndexReference() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getIndexPointer()}.
-	 */
-	@Test
-	public void testGetIndexPointer() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getIndexCopy()}.
-	 */
-	@Test
-	public void testGetIndexCopy() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#getSwap()}.
-	 */
-	@Test
-	public void testGetSwap() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#copy(MatrixError)}.
-	 */
-	@Test
-	public void testCopyMatrixError() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#copy()}.
-	 */
-	@Test
-	public void testCopy() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link MatrixError#clone()}.
-	 */
-	@Test
-	public void testClone() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
 	 * Test method for {@link MatrixError#plus(MatrixError)}.
 	 */
 	@Test
 	public void testPlusMatrixError() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = A.plus(MatrixConst);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) ((2*i+j)*init + 2*constant));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -328,7 +138,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testPlusMatrixErrorMatrixError() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = MatrixError.plus(A,MatrixConst);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) ((2*i+j)*init + 2*constant));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -336,7 +155,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testPlusEquals() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		A.plusEquals(MatrixConst);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & A.getElement(i,j)==((double) ((2*i+j)*init + 2*constant));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -344,7 +172,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testMinusMatrixError() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = A.minus(MatrixConst);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) ((2*i+j)*init));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -352,7 +189,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testMinusMatrixErrorMatrixError() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = MatrixError.minus(A,MatrixConst);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) ((2*i+j)*init));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -360,7 +206,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testMinusEquals() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		A.minusEquals(MatrixConst);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & A.getElement(i,j)==((double) ((2*i+j)*init));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -376,7 +231,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testTimesDouble() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = A.times(constant);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) (((2*i+j)*init)+constant)*constant);	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -392,7 +256,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testTimesMatrixErrorDouble() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = MatrixError.times(A,constant);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) (((2*i+j)*init)+constant)*constant);	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -408,7 +281,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testTimesEqualsDouble() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		A.timesEquals(constant);
+		
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & A.getElement(i,j)==((double)(((i+j)*init)+constant)*constant);	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -432,7 +314,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testTranspose() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = A.transpose();
+		
+		boolean bool = true;
+		for(int i=0;i<colNb;i++){
+    		for(int j=0;j<rowNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) ( (i+2*j)*init+constant));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -440,7 +331,16 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testTransposeMatrixError() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = MatrixError.transpose(A);
+		
+		boolean bool = true;
+		for(int i=0;i<colNb;i++){
+    		for(int j=0;j<rowNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) ( (i+2*j)*init+constant));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -448,7 +348,15 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testOpposite() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = A.opposite();
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) -((2*i+j)*init + constant));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -456,7 +364,15 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testOppositeMatrixError() {
-		fail("Not yet implemented"); // TODO
+		MatrixError A = new MatrixError(MatrixA);
+		MatrixError MatrixErrorResult = MatrixError.opposite(A);
+		boolean bool = true;
+		for(int i=0;i<rowNb;i++){
+    		for(int j=0;j<colNb;j++){
+    		bool = bool & MatrixErrorResult.getElement(i,j)==((double) -((2*i+j)*init + constant));	
+    		}   	
+		}
+		assertTrue(bool);
 	}
 
 	/**
@@ -464,7 +380,15 @@ public class MatrixErrorTest {
 	 */
 	@Test
 	public void testTrace() {
-		fail("Not yet implemented"); // TODO
+		MatrixError B = new MatrixError(MatrixB);
+		double traceResult = B.trace();
+		double calc = 0;
+		for(int i=0;i<rowNb;i++){
+		calc += (double) ((3*i)*init + constant);	
+		}		
+		assertTrue(traceResult==calc);
+		System.out.println("traceResult   :"+traceResult);
+		System.out.println("calc          :"+calc);
 	}
 
 	/**
